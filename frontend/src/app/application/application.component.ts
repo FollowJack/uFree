@@ -21,18 +21,21 @@ export class ApplicationComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.auth.userProfile);
+    this.balance = '0';
   }
 
-  initAndDisplayAccount = () => {
+  initAndDisplayAccount(){
+    // that.transferFrom = '0x0';
+    // that.balance = '0 ETH';
     let that = this;
-    this.contract.getAccountInfo().then(function(acctInfo){
-      console.log(acctInfo);
+
+    this.contract.getAccountInfo().then((acctInfo: any) => {
       that.transferFrom = acctInfo.fromAccount;
       that.balance = acctInfo.balance;
     }).catch(function(error){
       console.log(error);
     });
-  };
+  }
 
   sendApplication() {
     let that = this;
