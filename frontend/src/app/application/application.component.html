@@ -6,9 +6,15 @@
   </li>
 </ul>
 
-<p>
-  <a routerLink="/confirmation">Send Application</a>
-</p>
-<p>
-  <a routerLink="/" href>Back to Home</a>
-</p>
+<div>
+  <b>Address:</b>{{transferFrom}}
+    <b>Balance:</b>{{balance}}
+  </div>
+
+  <p>
+    <button (click)="sendApplication()">Send Application</button>
+    <!-- <a routerLink="/confirmation">Send Application</a> TODO: Delete-->
+  </p>
+  <p>
+    <a routerLink="/" href>Back to Home</a>
+  </p>
