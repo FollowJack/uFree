@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule,MatCheckboxModule,MatToolbarModule } from '@angular/material';
+
 import { AppRoutingModule } from './app-routing.module';
 import { ApiService } from './api.service';
 import { AuthService } from './auth/auth.service';
@@ -25,6 +28,14 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     BrowserModule,
+    // BrowserAnimationsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatToolbarModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule
