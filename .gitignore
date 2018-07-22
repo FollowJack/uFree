@@ -11,7 +11,6 @@ config.js
 /out-tsc
 
 # dependencies
-/node_modules
 
 # IDEs and editors
 /.idea
@@ -45,3 +44,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+/server
+/blockchain
