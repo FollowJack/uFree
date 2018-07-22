@@ -12,6 +12,7 @@ export class ApplicationComponent implements OnInit {
   profileArray = this._makeProfileArray(this.auth.userProfile);
   transferFrom = '0x0';
   balance ='0 ETH';
+  application = {};
 
   constructor(public auth: AuthService,
     private router: Router,
@@ -39,6 +40,9 @@ export class ApplicationComponent implements OnInit {
 
   sendApplication() {
     let that = this;
+
+    // check if application is valid
+    console.log(this.application)
 
     this.contract.sendVisaApplication(that.transferFrom).then(function(result){
       console.log(result);

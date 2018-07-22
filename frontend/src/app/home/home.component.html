@@ -1,21 +1,51 @@
-<h1>Welcome to uFree</h1>
+<mat-grid-list cols="2" rowHeight="1:1">
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Welcome to uFree</mat-card-title>
+        <mat-card-subtitle>A decentralized Visa for everyone</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://images.pexels.com/photos/32237/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>Your process made simple. Just do:</p>
+        <ol>
+          <li>Step: Register</li>
+          <li>Step: Fill out your form</li>
+          <li>Step: Magic --> The galaxy will decide for you</li>
+        </ol>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
 
-<h2>A decentralized Visa for everywhere</h2>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="user-header-image"></div>
+        <mat-card-title>{{auth.userProfile?.name ? auth.userProfile?.name : "0x0" }}</mat-card-title>
+        <mat-card-subtitle>Role: Applicant</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions *ngIf="!auth.authenticated">
+        <button mat-raised-button color="primary" (click)="auth.login()">Log In</button>
 
-<p>Your process made simple. Just do:</p>
-<ol>
-  <li>Step</li>
-  <li>Step</li>
-  <li>Step</li>
-</ol>
+        <!-- <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button> -->
+      </mat-card-actions>
+      <mat-card-actions *ngIf="auth.authenticated">
+        <a  mat-button routerLink="/application">Apply Now</a>
+        <button mat-button color="warn" (click)="auth.logout()">Log Out</button>
+      </mat-card-actions>
+    </mat-card>
 
-<a routerLink="/application">Apply Now</a>
+  </mat-grid-tile>
+</mat-grid-list>
 
-<div *ngIf="!auth.authenticated">
-  <button (click)="auth.login()">Log In</button>
+<!-- <div *ngIf="!auth.authenticated">
+<button mat-raised-button color="primary" (click)="auth.login()">Log In</button>
 </div>
 
 <div *ngIf="auth.authenticated">
-  <p>Hello, <a routerLink="/profile" href>{{auth.userProfile?.name}}</a>!</p>
-  <button (click)="auth.logout()">Log Out</button>
-</div>
+<p>Hello, <a routerLink="/profile" href>{{auth.userProfile?.name}}</a>!</p>
+
+<a  mat-raised-button routerLink="/application">Apply Now</a> <br>
+<button mat-raised-button color="warn" (click)="auth.logout()">Log Out</button>
+</div> -->

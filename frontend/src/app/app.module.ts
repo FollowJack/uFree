@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule,MatCheckboxModule,MatToolbarModule } from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ApiService } from './api.service';
@@ -28,16 +31,20 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatInputModule,
     MatToolbarModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule
+    MatFormFieldModule,
+    BrowserAnimationsModule,
+
   ],
   providers: [
     ApiService,
