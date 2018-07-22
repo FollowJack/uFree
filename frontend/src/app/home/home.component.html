@@ -1,4 +1,15 @@
-<h1>Login</h1>
+<h1>Welcome to uFree</h1>
+
+<h2>A decentralized Visa for everywhere</h2>
+
+<p>Your process made simple. Just do:</p>
+<ol>
+  <li>Step</li>
+  <li>Step</li>
+  <li>Step</li>
+</ol>
+
+<a routerLink="/application">Apply Now</a>
 
 <div *ngIf="!auth.authenticated">
   <button (click)="auth.login()">Log In</button>
@@ -7,5 +18,4 @@
 <div *ngIf="auth.authenticated">
   <p>Hello, <a routerLink="/profile" href>{{auth.userProfile?.name}}</a>!</p>
   <button (click)="auth.logout()">Log Out</button>
-
 </div>

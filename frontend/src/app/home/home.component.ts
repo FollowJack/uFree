@@ -9,9 +9,7 @@ import { AuthService } from './../auth/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  dragons: any[];
   authSubscription: Subscription;
-  dragonsSubscription: Subscription;
 
   constructor(
     private api: ApiService,

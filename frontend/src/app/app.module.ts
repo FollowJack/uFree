@@ -8,14 +8,20 @@ import { AuthService } from './auth/auth.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CallbackComponent } from './callback/callback.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ApplicationComponent } from './application/application.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CallbackComponent,
-    ProfileComponent
+    ApplicationComponent,
+    ConfirmationComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

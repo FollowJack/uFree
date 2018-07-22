@@ -4,7 +4,8 @@ import { AuthGuard } from './auth/auth.guard';
 
 import { HomeComponent } from './home/home.component';
 import { CallbackComponent } from './callback/callback.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ApplicationComponent } from './application/application.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 @NgModule({
   imports: [
@@ -18,8 +19,15 @@ import { ProfileComponent } from './profile/profile.component';
         component: CallbackComponent
       },
       {
-        path: 'profile',
-        component: ProfileComponent,
+        path: 'application',
+        component: ApplicationComponent,
+        canActivate: [
+          AuthGuard
+        ]
+      },
+      {
+        path: 'confirmation',
+        component: ConfirmationComponent,
         canActivate: [
           AuthGuard
         ]
