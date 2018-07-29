@@ -6,3 +6,12 @@
 .form-container > * {
   width: 100%;
 }
+
+.container {
+  margin-top: 3rem
+}
+
+.user-header-image {
+  /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+  background-size: cover;
+}

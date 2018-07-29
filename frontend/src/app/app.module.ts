@@ -8,7 +8,6 @@ import {MatInputModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
-import { ApiService } from './api.service';
 import { AuthService } from './auth/auth.service';
 import { ContractService } from './contract/contract.service';
 import { AppComponent } from './app.component';
@@ -47,7 +46,6 @@ import { HeaderComponent } from './header/header.component';
 
   ],
   providers: [
-    ApiService,
     AuthService,
     ContractService
   ],

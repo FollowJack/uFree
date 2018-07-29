@@ -1,6 +1,16 @@
 # uFree - App
 
-TODO
+Frontend application of uFree
 
+## Getting Started
 
-https://material.angular.io/guide/getting-started
+For installing dependency
+
+```
+npm install
+```
+
+For running locally
+```
+ng serve
+```

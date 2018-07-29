@@ -1,0 +1,23 @@
+{
+  "name": "uFree-server",
+  "version": "0.1.0",
+  "description": "Server of uFree.",
+  "repository": "TODO",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "FollowJack",
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^7.4.3"
+  },
+  "devDependencies": {
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.3",
+    "express": "^4.15.2",
+    "express-jwt": "^5.1.0",
+    "jwks-rsa": "^1.1.1"
+  }
+}

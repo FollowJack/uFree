@@ -2,3 +2,14 @@
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
+
+.jumbotron {
+  background-image: url("assets/img/universe.jpg");
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  color:white;
+}
+
+.mat-card-title {
+    margin-bottom: 8px;
+}

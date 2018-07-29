@@ -9,10 +9,9 @@ import { ContractService } from './../contract/contract.service';
   styleUrls: ['./application.component.css']
 })
 export class ApplicationComponent implements OnInit {
-  profileArray = this._makeProfileArray(this.auth.userProfile);
-  transferFrom = '0x0';
-  balance ='0 ETH';
-  application = {};
+  balance : string;
+  application : any = {};
+
 
   constructor(public auth: AuthService,
     private router: Router,
@@ -21,17 +20,23 @@ export class ApplicationComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.auth.userProfile);
     this.balance = '0';
   }
 
   initAndDisplayAccount(){
-    // that.transferFrom = '0x0';
-    // that.balance = '0 ETH';
     let that = this;
 
+    // TODO: Not in this version 0.0.1 - get eisiting applications
+    // this.contract.getApplications().subscribe((data:  Array<object>) => {
+    //   this.application  =  data[0]; //TODO check application for public address
+    //   console.log(data);
+    //   this.application.birthdate = this._parseDate(this.application.birthdate)
+    //   this.application.valid_from = this._parseDate(this.application.valid_from)
+    //   this.application.valid_till = this._parseDate(this.application.valid_till)
+    // });
+
     this.contract.getAccountInfo().then((acctInfo: any) => {
-      that.transferFrom = acctInfo.fromAccount;
+      that.application.public_address = acctInfo.fromAccount;
       that.balance = acctInfo.balance;
     }).catch(function(error){
       console.log(error);
@@ -41,28 +46,40 @@ export class ApplicationComponent implements OnInit {
   sendApplication() {
     let that = this;
 
-    // check if application is valid
-    console.log(this.application)
-
-    this.contract.sendVisaApplication(that.transferFrom).then(function(result){
-      console.log(result);
-      that.router.navigateByUrl("/confirmation");
+    this.contract.createApplicationContract(that.application.public_address, that.application)
+    .then(contract => {
+      that.application.contract_address = contract.address;
+      that.contract.createApplication(that.application).subscribe((application) => {
+        console.log(application);
+        that.router.navigateByUrl("/confirmation");
+      });
     }).catch(function(error){
       console.log(error);
       that.initAndDisplayAccount();
     });
   }
 
-  private _makeProfileArray(obj) {
-    const keyPropArray = [];
 
-    for (const key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        keyPropArray.push(key + ': ' + obj[key]);
-      }
-    }
-
-    return keyPropArray;
-  }
+  // TODO: Not needed in v0.0.1
+  // private _parseDate(date) {
+  //   date = new Date(date);
+  //   let result;
+  //
+  //   var year = date.getFullYear();
+  //   var month = date.getMonth()+1;
+  //   var day = date.getDate();
+  //
+  //   if (day < 10) {
+  //     day = '0' + day;
+  //   }
+  //   if (month < 10) {
+  //     month = '0' + month;
+  //   }
+  //
+  //   // target format is yyyy-mm-dd
+  //   result = year + '-' + month + '-' + day
+  //   console.log(result);
+  //   return result;
+  // }
 
 }

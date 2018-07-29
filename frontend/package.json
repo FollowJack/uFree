@@ -1,5 +1,5 @@
 {
-  "name": "uFree - App",
+  "name": "uFree-dapp",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -24,7 +24,9 @@
     "@angular/platform-browser-dynamic": "6.0.0",
     "@angular/router": "6.0.0",
     "auth0-js": "^9.5.1",
+    "bootstrap": "^4.1.3",
     "core-js": "^2.4.1",
+    "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "rxjs": "^6.1.0",
     "truffle-contract": "^3.0.6",
